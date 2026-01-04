@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s[50];
+    int i = 0, a = 0, b = 0;
+
+    printf("Enter string: ");
+    scanf("%s", s);
+
+    // handle epsilon
+    if (strlen(s) == 0) {
+        printf("Derived");  // ε is valid
+        return 0;
+    }
+
+    // count a
+    while (s[i] == 'a') {
+        a++;
+        i++;
+    }
+
+    // count b
+    while (s[i] == 'b') {
+        b++;
+        i++;
+    }
+
+    // check condition
+    if (i == strlen(s) && b == 2 * a)
+        printf("Derived");
+    else
+        printf("Not Derived");
+
+    return 0;
+}
